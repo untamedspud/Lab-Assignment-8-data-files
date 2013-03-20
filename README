@@ -1,0 +1,19 @@
+
+motorway.txt
+	Each line has two data items on it.
+		The first item is the vehicle count.
+		The second item is the time, in HHMMSS (hour minute second) format.
+
+
+chickens.txt
+	Each line has just one data item on it.
+
+	Every third line represents an item in the control block.  (that is, line 1, 4, 7, 10, etc. )
+	Every third line, starting from the second line, is the Low dose group (lines 2, 5, 8, 11, etc.)
+	Every third line, starting from the third line, is the High dose group.
+
+
+pollution.txt
+	Each line has two data items on it.
+		The first item is the annual mean concentration of sulphur dioxide.
+		The second item is the city where it was recorded, as a string.	

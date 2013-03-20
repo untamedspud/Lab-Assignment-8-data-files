@@ -1,0 +1,21 @@
+10      Phoenix
+13      Little Rock
+12      San Francisco
+17      Denver
+56      Hartford
+36      Wilmington
+29      Washington
+14      Jacksonville
+10      Miami
+24      Atlanta
+110     Chicago
+28      Indianapolis
+17      Des Moines
+8       Wichita
+30      Louisville
+9       New Orleans
+47      Baltimore
+35      Detroit
+29      Minneapolis-St. Paul
+14      Kansas City
+56      St. Louis
