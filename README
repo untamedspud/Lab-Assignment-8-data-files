@@ -1,23 +1,61 @@
 
+README for Lab 8 Files
+March 20, 2013
+
+
+DATA FILES =====================================================================
+
 motorway.txt
-	Each line has two data items on it.
-		The first item is the vehicle count.
-		The second item is the time, in HHMMSS (hour minute second) format.
+        Each line has two data items on it.
+                The first item is the vehicle count.
+                The second item is the time, in HHMMSS (hour minute second) format.
 
 
 chickens.txt
-	Each line has just one data item on it.
+        Each line has just one data item on it.
 
-	Every third line represents an item in the control block.  
-		(that is, line 1, 4, 7, 10, etc. )
+        Every third line represents an item in the control block.  
+                (that is, line 1, 4, 7, 10, etc. )
 
-	Every third line, starting from the second line, is the Low dose group 
-		(lines 2, 5, 8, 11, etc.)
+        Every third line, starting from the second line, is the Low dose group 
+                (lines 2, 5, 8, 11, etc.)
 
-	Every third line, starting from the third line, is the High dose group.
+        Every third line, starting from the third line, is the High dose group.
 
 
 pollution.txt
-	Each line has two data items on it.
-		The first item is the annual mean concentration of sulphur dioxide.
-		The second item is the city where it was recorded, as a string.	
+        Each line has two data items on it.
+                The first item is the annual mean concentration of sulphur dioxide.
+                The second item is the city where it was recorded, as a string. 
+
+
+
+
+HEADER FILE ====================================================================
+
+The header file included in this collection (selectionSort.h) provides the 
+following 3 functions for use in your final Lab 8 program:
+
+
+    // public prototyes
+
+    // sort_array() will sort an array using the selection sort algorithm
+    void sort_array( int a[], int n, char sortorder );
+	//  a[] is the array to be sorted
+	//  n   is the number of elements in the array with valid numeric data
+	//  sortorder  is either SORT_ASCENDING or SORT_DESCENDING
+
+
+
+    // chomp() will remove a trailing newline from a string, often the result
+	of reading in a string from a file using the standard fgets() function.
+    void chomp( char a[] );
+	//  a[] is a string which may contain a newline '\n' at the end of it.
+	//      if it does, then chomp removes it from the string.
+
+
+
+    void skip_file_input_line( FILE *IN );
+	//  IN is a FILE variable pointing to a file that has already been 
+	//      opened with the standard fopen( ) function.
+
