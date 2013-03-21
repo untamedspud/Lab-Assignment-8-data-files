@@ -8,8 +8,12 @@ motorway.txt
 chickens.txt
 	Each line has just one data item on it.
 
-	Every third line represents an item in the control block.  (that is, line 1, 4, 7, 10, etc. )
-	Every third line, starting from the second line, is the Low dose group (lines 2, 5, 8, 11, etc.)
+	Every third line represents an item in the control block.  
+		(that is, line 1, 4, 7, 10, etc. )
+
+	Every third line, starting from the second line, is the Low dose group 
+		(lines 2, 5, 8, 11, etc.)
+
 	Every third line, starting from the third line, is the High dose group.
 
 
