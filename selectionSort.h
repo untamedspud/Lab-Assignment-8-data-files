@@ -73,4 +73,34 @@ void sort_array( int a[], int n, char ordering )
 	return;
 }
 
+
+
+
+
+void skip_file_input_line( FILE *IN )
+{
+        char c = fgetc( IN );
+
+        while ( c != '\012' && ! feof ( IN ) ) 
+                c = fgetc( IN );
+
+        return;
+}
+
+
+void chomp( char a[] )
+{
+        int i;
+
+        // find the end of the string
+        while ( a[i++] );
+                // null body
+
+        i -= 2;
+        if ( a[ i ] == '\n' )
+                a[ i ] = '\0';
+
+        return;
+}
+
 #endif
