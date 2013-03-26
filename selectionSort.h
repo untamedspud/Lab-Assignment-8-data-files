@@ -6,19 +6,46 @@
 #define SORT_DESCENDING 'd'
 
 
-// prototypes
+// ----------------------------------------------------------------
+// function prototypes
 
-// public prototyes
+// public prototypes:  These are the functions in this header file 
+//                     that are meant to be used by the programmer.
 void sort_array( int a[], int n, char sortorder );
+void sort_arrays( int a[], int n, int b[], char ordering );
 void chomp( char a[] );
 void skip_file_input_line( FILE *IN );
 
-// private prototypes
+
+// ----------------------------------------------------------------
+
+
+// private prototypes; These are functions in this header file
+//                     that are used by other functions in this 
+//                     header file.  They're not meant to be used
+//                     by programmers (they're utility functions).
 int  get_min_range( int a[], int first, int last );
 int  get_max_range( int a[], int first, int last );
+int  find_item_to_swap( int a[], char sortorder, int first, int last );
 
 
-// find the smallest item in the array
+// ----------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+// function definitions
+//     in a "real world" situation, this C code doesn't get put in the
+//     header file.  We'll learn how to do this right in lab 9.
+//     For now, it's useful to have it here.
+
+
+// finds the smallest integer value in the array *a*.
 int get_min_range( int a[], int first, int last )
 {
 	int i = first;
@@ -31,7 +58,7 @@ int get_min_range( int a[], int first, int last )
 	return smallest;
 }
 
-// find the largest item in the array
+// finds the largest integer value in the array *a*.
 int get_max_range( int a[], int first, int last )
 {
 	int i = first;
@@ -61,19 +88,28 @@ int find_item_to_swap( int a[], char sortorder, int first, int last )
 				swapitem = i;
 		}
 	else {
-		puts( "Invalid sorting order passed to function find_item_to_swap( )." );
+		puts( "Invalid sorting order passed to the "
+			"function find_item_to_swap( )." );
+
 		exit( EXIT_FAILURE );
 	}
 		    
 	return swapitem;
 }
 
-void sort_array( int a[], int n, char ordering )
+
+
+// Sorts the array *a* in place.  
+// 	Sorting in place means it changes the original array.
+// Looks at the first *n* elements of array *a* only.
+// ordering should be the value 'a' (SORT_ASCENDING)  or 'd' (SORT_DESCENDING)
+void sort_array( int a[], const int n, const char ordering )
 {
 	int fill, temp, index_of_min;
 
 	if ( ordering != SORT_ASCENDING && ordering != SORT_DESCENDING ) {
-		printf( "Invalid sort ordering passed to function sort_array.  Value=%c.\n", ordering );
+		printf( "Invalid sort ordering passed to function sort_array.  "
+			"Value=%c.\n", ordering );
 		printf( "Must be %c or %c.\n", SORT_ASCENDING, SORT_DESCENDING );
 		exit( EXIT_FAILURE );
 	}
@@ -93,6 +129,40 @@ void sort_array( int a[], int n, char ordering )
 
 
 
+// sorts the arrays *a* and *b* in place.  
+// 	Sorting in place means it changes the original arrays.
+// Looks at the first *n* elements of array *a* only.
+// ordering should be the value 'a' (SORT_ASCENDING)  or 'd' (SORT_DESCENDING)
+void sort_arrays( int a[], int n, int b[], char ordering )
+{
+	int fill, temp, index_of_min;
+
+	if ( ordering != SORT_ASCENDING && ordering != SORT_DESCENDING ) {
+		printf( "Invalid sort ordering passed to function sort_array.  "
+			"Value=%c.\n", ordering );
+		printf( "Must be %c or %c.\n", SORT_ASCENDING, SORT_DESCENDING );
+		exit( EXIT_FAILURE );
+	}
+	
+	for ( fill = 0; fill < n - 1; ++fill ) {
+	    index_of_min = find_item_to_swap( a, ordering, fill, n - 1 );
+
+	    if ( fill != index_of_min ) {
+		    temp = a[ index_of_min ];
+		    a[ index_of_min ] = a[ fill ];
+		    a[ fill ] = temp;
+
+		    temp = b[ index_of_min ];
+		    b[ index_of_min ] = b[ fill ];
+		    b[ fill ] = temp;
+	    }
+	} 
+
+	return;
+}
+
+
+
 void skip_file_input_line( FILE *IN )
 {
         char c = fgetc( IN );
@@ -104,9 +174,10 @@ void skip_file_input_line( FILE *IN )
 }
 
 
+
 void chomp( char a[] )
 {
-        int i;
+        int i = 0;
 
         // find the end of the string
         while ( a[i++] );
